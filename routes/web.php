@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Eric 03081200054 20SI2
+
 Route::get('/', function () {
     return view('mahasiswa.index');
+});
+
+Route::get('/KHS', function () {
+    return view('mahasiswa.index2');
 });

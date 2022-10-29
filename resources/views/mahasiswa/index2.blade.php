@@ -29,8 +29,8 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-              <a class="nav-link" aria-current="page" href="/KHS">Lihat KHS</a>
-              <a class="nav-link active" aria-current="page" href="#">Lihat KRS</a>
+              <a class="nav-link active" aria-current="page" href="/KHS">Lihat KHS</a>
+              <a class="nav-link" aria-current="page" href="/">Lihat KRS</a>
               <a class="nav-link" href="#">Profil</a>
               <a class="nav-link" href="#">Log Out</a>
             </div>
@@ -90,20 +90,23 @@
                 <th>Kode Matakuliah</th>
                 <th>Nama Matakuliah</th>
                 <th>SKS</th>
+                <th>Nilai</th>
             </tr>
             <?php
-                $detail_major_data = DB::select("SELECT * FROM student_detail_major WHERE student_id = '03081200054'");
+                $khs_detail_view = DB::select("SELECT * FROM khs_detail_view_eric WHERE StudentID = '03081200054'");
                 $no = 1;
-                foreach($detail_major_data as $major){
-                    $major_code = $major->kode;
-                    $major_name = $major->name;
+                foreach($khs_detail_view as $major){
+                    $major_code = $major->kode_matkul;
+                    $major_name = $major->nama_matkul;
                     $sks = $major->sks;
+                    $nilai = $major->huruf;
                     echo "
                         <tr>
                             <td>$no</td>
                             <td>$major_code</td>
                             <td>$major_name</td>
                             <td>$sks</td>
+                            <td>$nilai</td>
                         </tr>
                     ";
                     $no++;
